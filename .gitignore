@@ -31,3 +31,6 @@
 /config/master.key
 
 .idea
+/config/credentials/test.key
+
+/config/credentials/development.key
