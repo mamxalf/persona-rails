@@ -34,7 +34,7 @@ gem 'jbuilder'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -51,6 +51,21 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # Additional
+  # generate schema every models
+  gem 'annotate', github: 'excid3/annotate_models', branch: 'rails7'
+  # check vulnerability
+  gem 'brakeman'
+  # check/audit library
+  gem 'bundler-audit', github: 'rubysec/bundler-audit'
+  # debugging with byebug
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # for console another level
+  gem 'pry-rails'
+  # bring back assert"an :)))
+  gem 'rails-controller-testing'
+  # ruby standard code
+  gem 'standard'
 end
 
 group :development do
@@ -62,6 +77,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # A fully configurable and extendable Git hook manager
+  gem 'overcommit'
 end
 
 group :test do
@@ -71,7 +89,18 @@ group :test do
   gem 'webdrivers'
 end
 
+# for better programing in healthy life
 gem 'clean-architecture', '5.0.2'
+# famous auth in rails
 gem 'devise'
+# fix code auto
 gem 'rubocop', require: false
 gem 'rubocop-performance'
+# pagination
+gem 'pagy', '~> 5.1'
+# before use es :))
+gem 'pg_search', '~> 2.3'
+# validation phone number
+gem 'phonelib', '~> 0.6.47'
+# tracking error
+gem 'rollbar'
