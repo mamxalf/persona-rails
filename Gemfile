@@ -98,6 +98,8 @@ end
 gem 'clean-architecture', '5.0.2'
 # famous auth in rails
 gem 'devise'
+# Hashie is a collection of classes and mixins that make Ruby hashes more powerful.
+gem 'hashie', '~> 5.0'
 # pagination
 gem 'pagy', '~> 5.1'
 # before use es :))
