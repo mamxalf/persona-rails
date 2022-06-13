@@ -111,3 +111,5 @@ gem 'rollbar'
 # fix code auto
 gem 'rubocop', require: false
 gem 'rubocop-performance'
+# Tailwind CSS
+gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.8'

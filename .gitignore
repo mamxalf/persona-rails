@@ -34,3 +34,6 @@
 /config/credentials/test.key
 
 /config/credentials/development.key
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
