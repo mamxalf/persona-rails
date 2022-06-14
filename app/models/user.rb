@@ -17,4 +17,15 @@
 #
 class User < ApplicationRecord
   has_one :auth, as: :auth_able, dependent: :destroy, class_name: 'Auth'
+
+  enum role: {
+    super_admin: 'super_admin',
+    admin:       'admin',
+    user:        'user',
+    trial:       'trial'
+  }
+
+  def self.allowed_role
+    roles.keys
+  end
 end
