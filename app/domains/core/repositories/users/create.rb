@@ -1,4 +1,4 @@
-class Core::Repositories::User::Create < Core::Repositories::AbstractRepository
+class Core::Repositories::Users::Create < Core::Repositories::AbstractRepository
   def initialize(params)
     @params = prepare! params, sanitize: true
   end

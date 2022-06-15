@@ -17,6 +17,7 @@
 #
 class User < ApplicationRecord
   has_one :auth, as: :auth_able, dependent: :destroy, class_name: 'Auth'
+  has_many :members
 
   enum role: {
     super_admin: 'super_admin',

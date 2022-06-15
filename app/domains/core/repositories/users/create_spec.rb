@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe Core::Repositories::User::Create do
+RSpec.describe Core::Repositories::Users::Create do
   let(:params) do
     {
       full_name:    'User Test 1',
@@ -9,7 +9,7 @@ RSpec.describe Core::Repositories::User::Create do
       address:      'Kowangan, Bumiphala',
       phone_number: '6285727617123',
       password:     'Test123.',
-      role:         'user'
+      role:         'admin'
     }
   end
 
