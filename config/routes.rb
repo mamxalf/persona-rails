@@ -1,7 +1,6 @@
-# == Route Map
-#
-
 Rails.application.routes.draw do
+  resources :examples
+  resources :member, :only => [:index, :new, :create]
   get 'user/new'
   get 'user/create'
   devise_for :auths
