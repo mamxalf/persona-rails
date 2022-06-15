@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     # return the path based on resource
     '/dashboard/index'
   end
+
+  def response_success(object)
+    object
+  end
 end
