@@ -9,6 +9,6 @@
 #
 FactoryBot.define do
   factory :example do
-    title { "MyString" }
+    title { 'MyString' }
   end
 end

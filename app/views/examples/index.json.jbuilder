@@ -1,1 +1,1 @@
-json.array! @examples, partial: "examples/example", as: :example
+json.array! @examples, partial: 'examples/example', as: :example
