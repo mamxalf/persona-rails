@@ -1,16 +1,12 @@
 <div>
   <h1 class="font-bold text-2xl">Dashboard</h1>
   <div class="flex justify-between">
-    <div class="text-sm breadcrumbs">
-      <ul>
-        <li><a>Dashboard</a></li>
-        <li>List Members</li>
-      </ul>
-    </div>
-    <button class="btn btn-sm">Add New Member</button>
+    <%= render 'breadcrumbs_member' %>
+    <%= link_to 'Add New Member', new_member_path, class: "btn btn-sm" %>
   </div>
 </div>
 <% if @response[:members].present? %>
+  <%= render 'layouts/includes/flash_message' %>
   <div class="overflow-x-auto mt-6">
     <table class="table w-full">
       <!-- head -->
@@ -19,6 +15,7 @@
         <th>#</th>
         <th>Email</th>
         <th>Role</th>
+        <th>Status</th>
         <th>Subscription</th>
         <th>Action</th>
       </tr>
@@ -29,6 +26,7 @@
           <th><%= index + 1 %></th>
           <td><%= member.email %></td>
           <td><%= member.role %></td>
+          <td><%= member.is_active %></td>
           <td><%= member.subscription %></td>
           <td><a class="btn btn-sm">Action</a></td>
         </tr>
