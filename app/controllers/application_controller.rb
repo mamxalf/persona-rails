@@ -21,4 +21,12 @@ class ApplicationController < ActionController::Base
   def response_success(object)
     object
   end
+
+  def response_failure!(object, message, flash_type: :notice)
+    if message.class == String
+      flash[flash_type] = message
+    else
+      flash[flash_type] = message.as_json['active_model_errors']
+    end
+  end
 end
