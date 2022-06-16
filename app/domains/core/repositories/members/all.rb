@@ -14,9 +14,10 @@ class Core::Repositories::Members::All < Core::Repositories::AbstractRepository
 
     build_responses = results.map do |res|
       auth = auths[res.id]
-      response as, { email: auth.email, password: nil, role: auth.role, subscription: res.subscription }
+      next if auth.nil?
+      response as, { id: res.id, email: auth.email, password: nil, role: auth.role, is_active: res.is_active, subscription: res.subscription }
     end
-    Success Hashie::Mash.new(response: build_responses, pagination: (paginate! pagy, results))
+    Success Hashie::Mash.new(response: build_responses.compact, pagination: (paginate! pagy, results))
   rescue => e
     Failure e.to_s
   end

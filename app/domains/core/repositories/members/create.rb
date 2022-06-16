@@ -7,12 +7,15 @@ class Core::Repositories::Members::Create < Core::Repositories::AbstractReposito
     user = User.find_by(id: @params.user_id)
     return Failure 'User not Found' if user.nil?
     # build member
-    member = user.members.create(user_id: user.id, is_active: @params.is_active, subscription: @params.subscription)
+    member = user.members.create(is_active: @params.is_active, subscription: @params.subscription)
 
     # build auth
     password = Devise.friendly_token(10)
     auth = member.build_auth(email: @params.email, password: password, role: @params.role)
-    build_response = { email: auth.email, password: password, role: auth.role, subscription: member.subscription }
+    return Failure error_messages_for(auth) unless auth.save
+
+    # build response
+    build_response = { id: member.id, email: auth.email, password: password, role: auth.role, is_active: member.is_active, subscription: member.subscription }
 
     # result
     Success response as, build_response
